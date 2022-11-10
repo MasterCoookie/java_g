@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pl.polsl.model;
+package pl.polsl.jktab.model;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -140,6 +140,14 @@ public class Tab {
      * listings arrayList
      */
     private void deserializeListings(){
+//        var testListing = new Listing("Title1", 1.11f, "deschere", false, "JK", "123456789");
+//        var testListing2 = new Listing("Title2", 2.22f, "deschere2", true, "WP", "323456789");
+//        var testListing3 = new Listing("Title3", 2.22f, "deschere3", true, "MB", "423456789");
+//        listings.add(testListing);
+//        listings.add(testListing2);
+//        listings.add(testListing3);
+//        this.serializeListings();
+
         try {
             FileInputStream inputStream = new FileInputStream("listings_list");
             ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);

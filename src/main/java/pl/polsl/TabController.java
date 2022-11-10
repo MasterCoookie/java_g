@@ -8,9 +8,10 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Tab;
+
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import pl.polsl.jktab.model.Tab;
 
 /**
  * FXML Controller class
@@ -36,5 +37,8 @@ public class TabController {
  
     public TabController(Tab _tab) {
         this.tab = _tab;
+        this.tab.getListings().forEach(x -> {
+            System.out.println(x.getTitle());
+        });
     }
 }
