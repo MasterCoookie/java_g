@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="pl.polsl.TabController">
+   <children>
+      <TableView fx:id="listingsTable" layoutX="200.0" layoutY="93.0" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="listingName" prefWidth="75.0" text="Name" />
+          <TableColumn fx:id="listingPrice" prefWidth="75.0" text="Price" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
