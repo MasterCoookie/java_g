@@ -10,6 +10,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -31,6 +32,8 @@ public class TabController {
     private TableColumn listingName;
     @FXML
     private TableColumn listingPrice;
+    @FXML
+    private TableColumn postedBy;
     
     private final ObservableList<Listing> listings;
     private final Tab tab;
@@ -40,11 +43,12 @@ public class TabController {
         listingsTable.setItems(listings);
         listingName.setCellValueFactory(new PropertyValueFactory<Listing, String>("title"));
         listingPrice.setCellValueFactory(new PropertyValueFactory<Listing, Float>("price"));
-
+        postedBy.setCellValueFactory(new PropertyValueFactory<Listing, String>("authorUname"));
     }
  
     public TabController(Tab _tab) {
         this.tab = _tab;
+        
         listings = FXCollections.observableArrayList(tab.getListings());
         this.tab.getListings().forEach(x -> {
             System.out.println(x.getTitle());
