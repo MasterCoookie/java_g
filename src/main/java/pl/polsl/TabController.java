@@ -4,13 +4,9 @@
  */
 package pl.polsl;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -50,15 +46,16 @@ public class TabController {
         listingsTable.setRowFactory(rv -> {
             TableRow<Listing> row = new TableRow();
             row.setOnMouseClicked(event -> {
-            if (! row.isEmpty() && event.getButton()==MouseButton.PRIMARY 
-                 && event.getClickCount() == 2) {
+                if (! row.isEmpty()
+                     && event.getButton()==MouseButton.PRIMARY 
+                     && event.getClickCount() == 2) {
 
-                Listing clickedRow = row.getItem();
-                rowClick(clickedRow);
-            }
-        });
-        return row ;
+                    Listing clickedRow = row.getItem();
+                    rowClick(clickedRow);
+                }
             });
+            return row ;
+        });
     }
  
     public TabController(Tab _tab) {
