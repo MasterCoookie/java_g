@@ -75,7 +75,7 @@ public class TabController {
         System.out.println(l.getTitle());
         
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("listing.fxml"));
-        fxmlLoader.setControllerFactory( t -> { return new ListingController(l); });
+//        fxmlLoader.setControllerFactory( t -> { return new ListingController(l); });
         
         Stage stage = new Stage();
         try{

@@ -6,31 +6,16 @@ package pl.polsl;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 
-import javafx.scene.text.Text;
-import pl.polsl.jktab.model.Listing;
 /**
  * FXML Controller class
  *
- * @author JK
+ * @author Jan
  */
 public class ListingController {
-    
-    private final Listing listing;
 
-    @FXML
-    private Text listiingTitle;
     /**
      * Initializes the controller class.
      */
-    @FXML
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
-    
-    public ListingController(Listing _listing) {
-        this.listing = _listing;
-        this.listiingTitle.setText(this.listing.getTitle());
-    }
 }
