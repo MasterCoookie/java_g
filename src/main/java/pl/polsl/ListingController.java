@@ -9,12 +9,15 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 
 import javafx.scene.text.Text;
+import pl.polsl.jktab.model.Listing;
 /**
  * FXML Controller class
  *
  * @author JK
  */
 public class ListingController {
+    
+    private final Listing listing;
 
     @FXML
     private Text listiingTitle;
@@ -26,4 +29,8 @@ public class ListingController {
         // TODO
     }    
     
+    public ListingController(Listing _listing) {
+        this.listing = _listing;
+        this.listiingTitle.setText(this.listing.getTitle());
+    }
 }

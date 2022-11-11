@@ -4,15 +4,19 @@
  */
 package pl.polsl;
 
+import java.io.IOException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import javafx.stage.Stage;
 import pl.polsl.jktab.model.Listing;
 import pl.polsl.jktab.model.Tab;
 
@@ -51,7 +55,7 @@ public class TabController {
                      && event.getClickCount() == 2) {
 
                     Listing clickedRow = row.getItem();
-                    rowClick(clickedRow);
+                    rowClick(clickedRow).show();
                 }
             });
             return row ;
@@ -67,7 +71,20 @@ public class TabController {
         });
     }
     
-    private void rowClick(Listing l) {
+    private Stage rowClick(Listing l) {
         System.out.println(l.getTitle());
+        
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("listing.fxml"));
+        fxmlLoader.setControllerFactory( t -> { return new ListingController(l); });
+        
+        Stage stage = new Stage();
+        try{
+            stage.setScene(new Scene(fxmlLoader.load()));
+            return stage;
+        } catch(IOException e) {
+            System.out.println("Except: " + e.getMessage());
+            return null;
+        }
+        
     }
 }
