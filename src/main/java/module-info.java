@@ -4,5 +4,6 @@ module pl.polsl {
     requires java.base;
 
     opens pl.polsl to javafx.fxml;
+    opens pl.polsl.jktab.model to javafx.base;
     exports pl.polsl;
 }
