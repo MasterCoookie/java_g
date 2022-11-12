@@ -86,9 +86,11 @@ public class TabController {
                         System.out.println("uaktualnienie");
                     } else {
                         for (var remitem : change.getRemoved()) {
+                            
                            
                             System.out.println("Removed");
                         }
+                        
                         for (var additem : change.getAddedSubList()) {
 //                            persons.getData().add(additem);
                         }
@@ -117,18 +119,22 @@ public class TabController {
     
     @FXML
     private void deleteListing() {
-        int index = listingsTable.getSelectionModel().getSelectedIndex();
-        try {
-            if(index != -1) {
-                tab.removeListing(index, tab.getUsername(), false);
-                listings.remove(index);
-            } 
-            System.out.println("Index: " + index);
+        int observableListindex = listingsTable.getSelectionModel().getSelectedIndex();
+        if(observableListindex != -1) {
+            int tabIndex = tab.getListings().indexOf(this.listings.get(observableListindex));
+            try {
+             if(tabIndex != -1) {
+                 tab.removeListing(tabIndex, tab.getUsername(), false);
+                 listings.remove(observableListindex);
+             } else {
+                 System.out.println("tabIndex: " + tabIndex);
+             }
+            } catch (ListingAccessException e) {
+                //TODO HANDLE
+                System.out.println(e.getMessage());
+            }
             
-            
-        } catch (ListingAccessException e) {
-            //TODO HANDLE
-            System.out.println(e.getMessage());
-        }
+        } 
+        System.out.println("observableListindex: " + observableListindex);
     }
 }
