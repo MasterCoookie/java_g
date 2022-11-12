@@ -6,10 +6,12 @@ package pl.polsl;
 
 import java.io.IOException;
 import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
@@ -18,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import pl.polsl.jktab.model.Listing;
+import pl.polsl.jktab.model.ListingAccessException;
 import pl.polsl.jktab.model.Tab;
 
 /**
@@ -36,6 +39,8 @@ public class TabController {
     private TableColumn listingPrice;
     @FXML
     private TableColumn postedBy;
+    @FXML
+    private Button deleteListingBtn;
     
     private final ObservableList<Listing> listings;
     private final Tab tab;
@@ -64,11 +69,34 @@ public class TabController {
  
     public TabController(Tab _tab) {
         this.tab = _tab;
+        this.tab.setUsername("JK");
+        this.tab.setContact("123456789");
         
         listings = FXCollections.observableArrayList(tab.getListings());
-        this.tab.getListings().forEach(x -> {
-            System.out.println(x.getTitle());
+        
+        listings.addListener(new ListChangeListener<Listing>(){
+            @Override
+            public void onChanged(ListChangeListener.Change<? extends Listing> change) {
+                while (change.next()) {
+                    if (change.wasPermutated()) {
+                        for (int i = change.getFrom(); i < change.getTo(); ++i) {
+                            System.out.println("zamiana");
+                        }
+                    } else if (change.wasUpdated()) {
+                        System.out.println("uaktualnienie");
+                    } else {
+                        for (var remitem : change.getRemoved()) {
+                           
+                            System.out.println("Removed");
+                        }
+                        for (var additem : change.getAddedSubList()) {
+//                            persons.getData().add(additem);
+                        }
+                    }
+                }
+            }
         });
+        
     }
     
     private Stage rowClick(Listing l) {
@@ -85,6 +113,22 @@ public class TabController {
             System.out.println("Except: " + e.getMessage());
             return null;
         }
-        
+    }
+    
+    @FXML
+    private void deleteListing() {
+        int index = listingsTable.getSelectionModel().getSelectedIndex();
+        try {
+            if(index != -1) {
+                tab.removeListing(index, tab.getUsername(), false);
+                listings.remove(index);
+            } 
+            System.out.println("Index: " + index);
+            
+            
+        } catch (ListingAccessException e) {
+            //TODO HANDLE
+            System.out.println(e.getMessage());
+        }
     }
 }
