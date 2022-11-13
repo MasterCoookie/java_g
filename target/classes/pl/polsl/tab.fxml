@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="677.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.polsl.TabController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.polsl.TabController">
    <children>
-      <TableView fx:id="listingsTable" layoutX="193.0" layoutY="93.0" prefHeight="200.0" prefWidth="318.0">
+      <TableView fx:id="listingsTable" layoutX="69.0" layoutY="100.0" prefHeight="210.0" prefWidth="318.0">
         <columns>
           <TableColumn fx:id="listingName" prefWidth="121.0" text="Name" />
           <TableColumn fx:id="listingPrice" prefWidth="79.0" text="Price" />
             <TableColumn fx:id="postedBy" prefWidth="117.0" text="Posted By" />
         </columns>
       </TableView>
-      <Button fx:id="deleteListingBtn" layoutX="423.0" layoutY="320.0" mnemonicParsing="false" onAction="#deleteListing" text="Delete" />
+      <Button fx:id="deleteListingBtn" layoutX="336.0" layoutY="319.0" mnemonicParsing="false" onAction="#deleteListing" text="Delete" />
+      <Button fx:id="createListingBtn" layoutX="556.0" layoutY="319.0" mnemonicParsing="false" onAction="#createListing" text="Create" />
+      <TextField layoutX="410.0" layoutY="100.0" prefHeight="25.0" prefWidth="192.0" />
+      <TextField layoutX="410.0" layoutY="136.0" prefHeight="25.0" prefWidth="98.0" />
+      <CheckBox layoutX="513.0" layoutY="140.0" mnemonicParsing="false" text="Negotiable?" />
+      <TextArea layoutX="413.0" layoutY="178.0" prefHeight="134.0" prefWidth="192.0" />
    </children>
 </AnchorPane>

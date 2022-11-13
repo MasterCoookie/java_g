@@ -137,4 +137,9 @@ public class TabController {
         } 
         System.out.println("observableListindex: " + observableListindex);
     }
+    
+    @FXML
+    private void createListing() {
+        
+    }
 }
