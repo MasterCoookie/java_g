@@ -12,6 +12,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -33,6 +34,7 @@ import net.glxn.qrgen.image.ImageType;
  * @author Jan
  */
 public class ListingController {
+    private final String username;
     private final Listing listing;
     @FXML
     private Text listingTitle;
@@ -40,10 +42,13 @@ public class ListingController {
     private TextFlow listingDesc;
     @FXML
     private Text listingPrice;
+    @FXML
+    private TextField qrAddress;
     /**
      * Initializes the controller class.
      */
-    public ListingController(Listing _listing) {
+    public ListingController(Listing _listing, String _username) {
+       this.username = _username;
        this.listing = _listing;
        System.out.println(this.listing.getPrice());
     }
@@ -63,7 +68,16 @@ public class ListingController {
     
     @FXML
     public void generateQR() {
-        ByteArrayOutputStream out = QRCode.from("LT Jerry0022").to(ImageType.PNG).withSize(200, 200).stream();
+        try {
+            String qrString = this.listing.generateCode(this.username, this.qrAddress.getText());
+            this.showQR(qrString);
+        } catch(Exception e) {
+            System.out.println(e);
+        }
+    }
+    
+    private void showQR(String qrString) {
+        ByteArrayOutputStream out = QRCode.from(qrString).to(ImageType.PNG).withSize(200, 200).stream();
         ByteArrayInputStream in = new ByteArrayInputStream(out.toByteArray());
         
         Stage stage = new Stage();
