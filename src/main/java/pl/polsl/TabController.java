@@ -11,14 +11,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableRow;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
@@ -134,17 +128,22 @@ public class TabController {
     private void deleteListing() {
         int observableListindex = listingsTable.getSelectionModel().getSelectedIndex();
         if(observableListindex != -1) {
-            int tabIndex = tab.getListings().indexOf(this.listings.get(observableListindex));
+            var l = this.listings.get(observableListindex);
+            int tabIndex = tab.getListings().indexOf(l);
             try {
              if(tabIndex != -1) {
-                 tab.removeListing(tabIndex, tab.getUsername(), false);
-                 listings.remove(observableListindex);
+                Alert alert = new Alert(AlertType.CONFIRMATION, "Delete " + l.getTitle() + "?", ButtonType.YES, ButtonType.NO, ButtonType.CANCEL);
+                alert.showAndWait();
+                if (alert.getResult() == ButtonType.YES) {
+                    tab.removeListing(tabIndex, tab.getUsername(), false);
+                    listings.remove(observableListindex);
+                }
              } else {
                  System.out.println("tabIndex: " + tabIndex);
              }
             } catch (ListingAccessException e) {
-                //TODO HANDLE
-                System.out.println(e.getMessage());
+                Alert alert = new Alert(AlertType.ERROR, "You cannot delete this listing!", ButtonType.OK);
+                alert.show();
             }
             
         } 
