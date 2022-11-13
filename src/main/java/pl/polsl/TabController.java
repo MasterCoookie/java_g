@@ -12,10 +12,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
@@ -41,6 +44,16 @@ public class TabController {
     private TableColumn postedBy;
     @FXML
     private Button deleteListingBtn;
+    @FXML
+    private Button createListingBtn;
+    @FXML
+    private TextField createListingTitle;
+    @FXML
+    private TextField createListingPrice;
+    @FXML
+    private CheckBox createListingNegotiable;
+    @FXML
+    private TextArea createListingDesc;
     
     private final ObservableList<Listing> listings;
     private final Tab tab;
