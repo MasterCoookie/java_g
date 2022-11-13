@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -60,7 +60,8 @@ public class ListingController {
         
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
-        this.listingPrice.setText(df.format(this.listing.getPrice()));
+        String str = new String(df.format(this.listing.getPrice()));
+        this.listingPrice.setText(str + (this.listing.isNegotiable() ? ", Negotiable" : ""));
     }
     
     @FXML
@@ -69,7 +70,8 @@ public class ListingController {
             String qrString = this.listing.generateCode(this.username, this.qrAddress.getText());
             this.showQR(qrString);
         } catch(Exception e) {
-            System.out.println(e);
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.show();
         }
     }
     
