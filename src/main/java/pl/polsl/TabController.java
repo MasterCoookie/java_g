@@ -105,7 +105,7 @@ public class TabController {
                         }
                         
                         for (var additem : change.getAddedSubList()) {
-//                            persons.getData().add(additem);
+                            tab.addListing(additem, false);
                         }
                     }
                 }
@@ -153,6 +153,21 @@ public class TabController {
     
     @FXML
     private void createListing() {
+        try {
+            float price = Float.parseFloat(this.createListingPrice.getText());
+            var l = new Listing(
+                    this.createListingTitle.getText(),
+                    price,
+                    this.createListingDesc.getText(),
+                    this.createListingNegotiable.selectedProperty().get(),
+                    this.tab.getUsername(),
+                    this.tab.getContact()
+            );
+            listings.add(l);
+        } catch (Exception e) {
+            //TODO HANDLE
+            System.out.println(e.getMessage());
+        }
         
     }
 }

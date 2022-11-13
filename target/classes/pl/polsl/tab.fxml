@@ -19,9 +19,9 @@
       </TableView>
       <Button fx:id="deleteListingBtn" layoutX="336.0" layoutY="319.0" mnemonicParsing="false" onAction="#deleteListing" text="Delete" />
       <Button fx:id="createListingBtn" layoutX="556.0" layoutY="319.0" mnemonicParsing="false" onAction="#createListing" text="Create" />
-      <TextField fx:id="createListingTitle" layoutX="410.0" layoutY="100.0" prefHeight="25.0" prefWidth="192.0" />
-      <TextField fx:id="createListingPrice" layoutX="410.0" layoutY="136.0" prefHeight="25.0" prefWidth="98.0" />
+      <TextField fx:id="createListingTitle" layoutX="410.0" layoutY="100.0" prefHeight="25.0" prefWidth="192.0" promptText="Title" />
+      <TextField fx:id="createListingPrice" layoutX="410.0" layoutY="136.0" prefHeight="25.0" prefWidth="98.0" promptText="Price" />
       <CheckBox fx:id="createListingNegotiable" layoutX="513.0" layoutY="140.0" mnemonicParsing="false" text="Negotiable?" />
-      <TextArea fx:id="createListingDesc" layoutX="413.0" layoutY="178.0" prefHeight="134.0" prefWidth="192.0" />
+      <TextArea fx:id="createListingDesc" layoutX="413.0" layoutY="178.0" prefHeight="134.0" prefWidth="192.0" promptText="Descryption" />
    </children>
 </AnchorPane>
