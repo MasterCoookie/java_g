@@ -141,4 +141,12 @@ public class Listing implements Serializable {
     public void setNegotiable(boolean negotiable) {
         this.negotiable = negotiable;
     }
+    
+    public boolean isAvilable() {
+        return this.status.equals(Status.AVILABLE);
+    }
+    
+    public boolean isClaimed() {
+        return this.status.equals(Status.CLAIMED);
+    }
 }

@@ -17,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.*;
 import javafx.stage.Stage;
 import pl.polsl.jktab.model.Listing;
@@ -47,6 +48,8 @@ public class ListingController {
     private Text contactInfo;
     @FXML
     private Button showContactInfoButton;
+    @FXML
+    private Shape status;
     /**
      * Initializes the controller class.
      */
@@ -70,6 +73,14 @@ public class ListingController {
         this.listingPrice.setText(str + (this.listing.isNegotiable() ? ", Negotiable" : ""));
         
         soldBy.setText(this.listing.getAuthorUname());
+        
+        var color = Color.RED;
+        if(this.listing.isAvilable()) {
+            color = Color.GREEN;
+        } else if(this.listing.isClaimed()) {
+            color = Color.ORANGE;
+        }
+        this.status.setFill(color);
     }
     
     @FXML

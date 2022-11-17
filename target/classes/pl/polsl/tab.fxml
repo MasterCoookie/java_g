@@ -27,5 +27,6 @@
       <Text layoutX="187.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avilable listings" />
       <Text layoutX="325.0" layoutY="-13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
       <Text layoutX="459.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new listing" />
+      <Button layoutX="69.0" layoutY="319.0" mnemonicParsing="false" onAction="#closeAll" text="Close All" />
    </children>
 </AnchorPane>

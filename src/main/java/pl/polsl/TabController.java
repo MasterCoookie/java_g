@@ -41,6 +41,8 @@ public class TabController {
     @FXML
     private Button createListingBtn;
     @FXML
+    private Button closeAll;
+    @FXML
     private TextField createListingTitle;
     @FXML
     private TextField createListingPrice;
@@ -167,6 +169,10 @@ public class TabController {
             //TODO HANDLE
             System.out.println(e.getMessage());
         }
-        
+    }
+    
+    @FXML
+    private void closeAll() {
+        this.tab.closeUserListings();
     }
 }

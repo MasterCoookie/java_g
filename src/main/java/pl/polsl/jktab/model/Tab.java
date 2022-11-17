@@ -171,7 +171,7 @@ public class Tab {
                 listing.closeListing();
             }
         });
-        this.serializeListings();
+//        this.serializeListings();
     }
     
     /**
