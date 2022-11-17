@@ -26,7 +26,8 @@
       <TextArea fx:id="createListingDesc" layoutX="413.0" layoutY="178.0" prefHeight="134.0" prefWidth="192.0" promptText="Descryption" />
       <Text layoutX="187.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Avilable listings" />
       <Text layoutX="325.0" layoutY="-13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text layoutX="459.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new listing" />
+      <Text fx:id="createNewText" layoutX="410.0" layoutY="87.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create new listing" textAlignment="CENTER" wrappingWidth="192.0" />
       <Button layoutX="69.0" layoutY="319.0" mnemonicParsing="false" onAction="#closeAll" text="Close All" />
+      <Text fx:id="alreadySellingText" layoutX="410.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="192.0" />
    </children>
 </AnchorPane>

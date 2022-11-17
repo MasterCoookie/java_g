@@ -5,6 +5,7 @@
 package pl.polsl;
 
 import java.io.IOException;
+import java.util.stream.Collectors;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -15,6 +16,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseButton;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import pl.polsl.jktab.model.Listing;
 import pl.polsl.jktab.model.ListingAccessException;
@@ -50,6 +52,10 @@ public class TabController {
     private CheckBox createListingNegotiable;
     @FXML
     private TextArea createListingDesc;
+    @FXML
+    private Text createNewText;
+    @FXML
+    private Text alreadySellingText;
     
     private final ObservableList<Listing> listings;
     private final Tab tab;
@@ -74,6 +80,8 @@ public class TabController {
             });
             return row ;
         });
+        
+        this.updateSellingText();
     }
  
     public TabController(Tab _tab) {
@@ -95,13 +103,13 @@ public class TabController {
                         System.out.println("uaktualnienie");
                     } else {
                         for (var remitem : change.getRemoved()) {
-                            
-                           
                             System.out.println("Removed");
+                            updateSellingText();
                         }
                         
                         for (var additem : change.getAddedSubList()) {
                             tab.addListing(additem, false);
+                            updateSellingText();
                         }
                     }
                 }
@@ -166,13 +174,30 @@ public class TabController {
             );
             listings.add(l);
         } catch (Exception e) {
-            //TODO HANDLE
-            System.out.println(e.getMessage());
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.OK);
+            alert.show();
         }
     }
     
     @FXML
     private void closeAll() {
         this.tab.closeUserListings();
+    }
+    
+    private void updateSellingText() {
+        var userListings = this.tab.generateUserListingsNames();
+        if(userListings.size() > 0) {
+            this.createNewText.setText("How about you sell more?");
+            if(userListings.size() > 3){
+                userListings = userListings.stream()
+                .limit(3)
+                .collect(Collectors.toList());
+            }
+            String listingsStr = String.join(", ", userListings);
+            this.alreadySellingText.setText("Selling " + listingsStr);
+        } else {
+            this.alreadySellingText.setText("");
+            this.createNewText.setText("Create new listing");
+        }
     }
 }
