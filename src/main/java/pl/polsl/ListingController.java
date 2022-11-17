@@ -41,6 +41,12 @@ public class ListingController {
     private Text listingPrice;
     @FXML
     private TextField qrAddress;
+    @FXML
+    private Text soldBy;
+    @FXML
+    private Text contactInfo;
+    @FXML
+    private Button showContactInfoButton;
     /**
      * Initializes the controller class.
      */
@@ -62,6 +68,8 @@ public class ListingController {
         df.setMaximumFractionDigits(2);
         String str = new String(df.format(this.listing.getPrice()));
         this.listingPrice.setText(str + (this.listing.isNegotiable() ? ", Negotiable" : ""));
+        
+        soldBy.setText(this.listing.getAuthorUname());
     }
     
     @FXML
@@ -89,5 +97,11 @@ public class ListingController {
         Scene scene = new Scene(root, 200, 200);
         stage.setScene(scene);
         stage.show();
+    }
+    
+    @FXML
+    private void showContactInfo() {
+        this.contactInfo.setText(this.listing.getAuthorContact());
+        this.showContactInfoButton.setVisible(false);
     }
 }
