@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import javafx.scene.image.Image;
 import pl.polsl.jktab.model.Tab;
 
 /**
@@ -22,6 +23,7 @@ public class App extends Application {
         scene = new Scene(loadFXML("tab"), 640, 480);
         stage.setScene(scene);
         stage.setTitle("TAB app");
+        stage.getIcons().add(new Image("https://i.pinimg.com/736x/ba/92/7f/ba927ff34cd961ce2c184d47e8ead9f6.jpg"));
         stage.show();
     }
 

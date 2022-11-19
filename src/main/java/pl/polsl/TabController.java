@@ -15,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseButton;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -96,17 +97,11 @@ public class TabController {
             public void onChanged(ListChangeListener.Change<? extends Listing> change) {
                 while (change.next()) {
                     if (change.wasPermutated()) {
-                        for (int i = change.getFrom(); i < change.getTo(); ++i) {
-                            System.out.println("zamiana");
-                        }
                     } else if (change.wasUpdated()) {
-                        System.out.println("uaktualnienie");
                     } else {
                         for (var remitem : change.getRemoved()) {
-                            System.out.println("Removed");
                             updateSellingText();
-                        }
-                        
+                        }                        
                         for (var additem : change.getAddedSubList()) {
                             tab.addListing(additem, false);
                             updateSellingText();
@@ -126,6 +121,7 @@ public class TabController {
         
         Stage stage = new Stage();
         stage.setTitle("Listing " + l.getTitle());
+        stage.getIcons().add(new Image("https://i.pinimg.com/736x/ba/92/7f/ba927ff34cd961ce2c184d47e8ead9f6.jpg"));
         try{
             stage.setScene(new Scene(fxmlLoader.load()));
             return stage;
