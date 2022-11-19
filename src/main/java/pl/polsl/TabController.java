@@ -61,6 +61,10 @@ public class TabController {
     private final ObservableList<Listing> listings;
     private final Tab tab;
     
+    /**
+     * initializes application GUI values based on 
+     * TAB class instance passed from constructor
+     */    
     @FXML
     public void initialize() {
         listingsTable.setItems(listings);
@@ -84,7 +88,13 @@ public class TabController {
         
         this.updateSellingText();
     }
- 
+    
+    /**
+     * Creates new controller based on Tab instance recieved in main app. 
+     * It creates observableArrayList which is used to display listings 
+     * inside a table. Also attaches change listener to it.
+     * @param _tab Tab instance recieved
+     */
     public TabController(Tab _tab) {
         this.tab = _tab;
         this.tab.setUsername("JK");
@@ -113,8 +123,13 @@ public class TabController {
         
     }
     
+    /**
+     * Generates new Stage class instance based on row in table clicked     * 
+     * @param l clicked listing
+     * @return new Listing stage, ready to be displayed
+     * @see pl.polsl.ListingController
+     */
     private Stage rowClick(Listing l) {
-        System.out.println(l.getTitle());
         
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("listing.fxml"));
         fxmlLoader.setControllerFactory( t -> { return new ListingController(l, this.tab.getUsername()); });
@@ -126,11 +141,15 @@ public class TabController {
             stage.setScene(new Scene(fxmlLoader.load()));
             return stage;
         } catch(IOException e) {
-            System.out.println("Except: " + e.getMessage());
+//            System.out.println("Except: " + e.getMessage());
             return null;
         }
     }
     
+    /**
+     * removes listing from table, 
+     * can display alert
+     */
     @FXML
     private void deleteListing() {
         int observableListindex = listingsTable.getSelectionModel().getSelectedIndex();
@@ -146,7 +165,7 @@ public class TabController {
                     listings.remove(observableListindex);
                 }
              } else {
-                 System.out.println("tabIndex: " + tabIndex);
+//                 System.out.println("tabIndex: " + tabIndex);
              }
             } catch (ListingAccessException e) {
                 Alert alert = new Alert(AlertType.ERROR, "You cannot delete this listing!", ButtonType.OK);
@@ -154,9 +173,12 @@ public class TabController {
             }
             
         } 
-        System.out.println("observableListindex: " + observableListindex);
+//        System.out.println("observableListindex: " + observableListindex);
     }
     
+    /**
+     * creates new listing and inserts it into table
+     */
     @FXML
     private void createListing() {
         try {
@@ -176,11 +198,17 @@ public class TabController {
         }
     }
     
+    /**
+     * closes all users listings
+     */
     @FXML
     private void closeAll() {
         this.tab.closeUserListings();
     }
     
+    /**
+     * updates text which is displayed above listing creation form 
+     */
     private void updateSellingText() {
         var userListings = this.tab.generateUserListingsNames();
         if(userListings.size() > 0) {
