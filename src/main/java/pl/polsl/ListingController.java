@@ -30,7 +30,7 @@ import net.glxn.qrgen.image.ImageType;
  * FXML Controller class
  *
  * @author Jan
- * @verison f3.0
+ * @version f3.0
  */
 public class ListingController {
     /**

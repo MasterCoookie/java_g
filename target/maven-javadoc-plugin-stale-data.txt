@@ -1,0 +1,52 @@
+@options
+@packages
+@argfile
+--class-path
+'C:/Users/Jan/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13.jar;C:/Users/Jan/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13.jar;C:/Users/Jan/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13.jar;C:/Users/Jan/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13.jar;C:/Users/Jan/.m2/repository/com/google/zxing/javase/3.0.0/javase-3.0.0.jar;C:/Users/Jan/.m2/repository/com/google/zxing/core/3.0.0/core-3.0.0.jar'
+--module-path
+'C:/Users/Jan/Documents/NetBeansProjects/javag_copy_2/java_g/target/classes;C:/Users/Jan/.m2/repository/org/openjfx/javafx-fxml/13/javafx-fxml-13-win.jar;C:/Users/Jan/.m2/repository/org/openjfx/javafx-graphics/13/javafx-graphics-13-win.jar;C:/Users/Jan/.m2/repository/org/openjfx/javafx-controls/13/javafx-controls-13-win.jar;C:/Users/Jan/.m2/repository/org/openjfx/javafx-base/13/javafx-base-13-win.jar;C:/Users/Jan/.m2/repository/net/glxn/qrgen/1.4/qrgen-1.4.jar'
+--patch-module
+pl.polsl='C:/Users/Jan/Documents/NetBeansProjects/javag_copy_2/java_g/src/main/java'
+-encoding
+'UTF-8'
+-protected
+-source
+'11'
+--module-source-path
+'C:/Users/Jan/Documents/NetBeansProjects/javag_copy_2/java_g/target/site/apidocs/src'
+-author
+-bottom
+'Copyright &#169; 2022. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/Jan/Documents/NetBeansProjects/javag_copy_2/java_g/target/site/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'jktab 3f API'
+-linkoffline
+'https://docs.oracle.com/en/java/javase/11/docs/api' 'C:/Users/Jan/Documents/NetBeansProjects/javag_copy_2/java_g/target/javadoc-bundle-options'
+-use
+-version
+-windowtitle
+'jktab 3f API'
+pl.polsl
+'C:/Users/Jan/Documents/NetBeansProjects/javag_copy_2/java_g/src/main/java/module-info.java'
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\allclasses-index.html = 1668882682878
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\allpackages-index.html = 1668882682881
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\element-list = 1668882682814
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\help-doc.html = 1668882682908
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\index-all.html = 1668882682900
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\index.html = 1668882682902
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\javadoc.bat = 1668882609144
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\jquery-ui.overrides.css = 1668882682944
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\member-search-index.js = 1668882682889
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\module-search-index.js = 1668882682883
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\overview-tree.html = 1668882682865
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\package-search-index.js = 1668882682885
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\script.js = 1668882682912
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\search.js = 1668882682915
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\stylesheet.css = 1668882682911
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\tag-search-index.js = 1668882682891
+C:\Users\Jan\Documents\NetBeansProjects\javag_copy_2\java_g\target\site\apidocs\type-search-index.js = 1668882682887
