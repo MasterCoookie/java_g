@@ -125,6 +125,7 @@ public class TabController {
         fxmlLoader.setControllerFactory( t -> { return new ListingController(l, this.tab.getUsername()); });
         
         Stage stage = new Stage();
+        stage.setTitle("Listing " + l.getTitle());
         try{
             stage.setScene(new Scene(fxmlLoader.load()));
             return stage;
